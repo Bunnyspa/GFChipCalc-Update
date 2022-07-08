@@ -69,9 +69,8 @@ public class MainDialog extends javax.swing.JDialog {
 
     private static void runProgram() {
         try {
-            String exePath = PATH + "\\GFChipCalc.jar";
-            ProcessBuilder process = new ProcessBuilder("java", "-jar", exePath);
-            process.directory(new File(PATH + "\\"));
+            ProcessBuilder process = new ProcessBuilder("java", "-jar", new File(PATH, "GFChipCalc.jar").getAbsolutePath());
+            process.directory(PATH);
             process.start();
         } catch (IOException ex) {
             Logger.getLogger(MainDialog.class.getName()).log(Level.SEVERE, null, ex);
